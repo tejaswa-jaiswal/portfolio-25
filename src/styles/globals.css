@@ -1,0 +1,235 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: #0a0a1a;
+  --card: rgba(255, 255, 255, 0.8);
+  --card-foreground: #0a0a1a;
+  --popover: rgba(255, 255, 255, 0.98);
+  --popover-foreground: #0a0a1a;
+  --primary: #0080ff;
+  --primary-foreground: #ffffff;
+  --secondary: rgba(138, 43, 226, 0.2);
+  --secondary-foreground: #0a0a1a;
+  --muted: rgba(100, 100, 150, 0.15);
+  --muted-foreground: #64748b;
+  --accent: rgba(0, 128, 255, 0.1);
+  --accent-foreground: #0080ff;
+  --destructive: #ff0080;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 128, 255, 0.2);
+  --input: rgba(0, 0, 0, 0.05);
+  --input-background: rgba(255, 255, 255, 0.5);
+  --switch-background: rgba(100, 100, 150, 0.2);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: rgba(0, 128, 255, 0.5);
+  --chart-1: #0080ff;
+  --chart-2: #8a2be2;
+  --chart-3: #00c896;
+  --chart-4: #ffa500;
+  --chart-5: #ff0080;
+  --radius: 0.75rem;
+  --neon-cyan: #00b8ff;
+  --neon-magenta: #c026d3;
+  --neon-purple: #8a2be2;
+  --neon-blue: #0080ff;
+}
+
+.dark {
+  --background: #0a0a0f;
+  --foreground: #e0e0ff;
+  --card: rgba(20, 20, 40, 0.5);
+  --card-foreground: #e0e0ff;
+  --popover: rgba(20, 20, 40, 0.95);
+  --popover-foreground: #e0e0ff;
+  --primary: #00ffff;
+  --primary-foreground: #0a0a0f;
+  --secondary: rgba(138, 43, 226, 0.3);
+  --secondary-foreground: #e0e0ff;
+  --muted: rgba(100, 100, 150, 0.2);
+  --muted-foreground: #a0a0c0;
+  --accent: rgba(0, 255, 255, 0.1);
+  --accent-foreground: #00ffff;
+  --destructive: #ff0080;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 255, 255, 0.2);
+  --input: rgba(255, 255, 255, 0.05);
+  --ring: rgba(0, 255, 255, 0.5);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Glassmorphism utilities */
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 128, 255, 0.2);
+  }
+  
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 128, 255, 0.3);
+  }
+
+  .dark .glass {
+    background: rgba(20, 20, 40, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+  }
+  
+  .dark .glass-strong {
+    background: rgba(20, 20, 40, 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+  }
+
+  .neon-border {
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 184, 255, 0.3),
+                inset 0 0 10px rgba(0, 184, 255, 0.05);
+  }
+
+  .dark .neon-border {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5),
+                inset 0 0 10px rgba(0, 255, 255, 0.1);
+  }
+
+  .neon-border-purple {
+    border: 1px solid var(--neon-magenta);
+    box-shadow: 0 0 10px rgba(192, 38, 211, 0.3),
+                inset 0 0 10px rgba(192, 38, 211, 0.05);
+  }
+
+  .dark .neon-border-purple {
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5),
+                inset 0 0 10px rgba(255, 0, 255, 0.1);
+  }
+
+  .neon-glow {
+    text-shadow: 0 0 10px rgba(0, 128, 255, 0.4),
+                 0 0 20px rgba(0, 128, 255, 0.2),
+                 0 0 30px rgba(0, 128, 255, 0.1);
+  }
+
+  .dark .neon-glow {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8),
+                 0 0 20px rgba(0, 255, 255, 0.5),
+                 0 0 30px rgba(0, 255, 255, 0.3);
+  }
+
+  .neon-glow-purple {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.4),
+                 0 0 20px rgba(138, 43, 226, 0.2),
+                 0 0 30px rgba(138, 43, 226, 0.1);
+  }
+
+  .dark .neon-glow-purple {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.8),
+                 0 0 20px rgba(138, 43, 226, 0.5),
+                 0 0 30px rgba(138, 43, 226, 0.3);
+  }
+}
