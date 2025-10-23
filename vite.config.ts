@@ -51,7 +51,16 @@
     },
     build: {
       target: 'esnext',
-      outDir: 'build',
+      outDir: 'dist',
+      sourcemap: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'],
+            'three-vendor': ['three', '@react-three/fiber', '@react-three/drei']
+          }
+        }
+      }
     },
     server: {
       port: 3000,
