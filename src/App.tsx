@@ -22,7 +22,7 @@ export default function App() {
               <div className="w-10 h-10 rounded-lg neon-border bg-primary/10 flex items-center justify-center">
                 <Brain className="w-6 h-6 text-primary" />
               </div>
-              <h1 className="text-xl neon-glow text-primary">TJ</h1>
+              <h1 className="text-xl neon-glow text-primary">tejasv.ai</h1>
             </div>
             <div className="hidden md:flex gap-8">
               <a href="#about" className="text-muted-foreground hover:text-primary transition-colors relative group">

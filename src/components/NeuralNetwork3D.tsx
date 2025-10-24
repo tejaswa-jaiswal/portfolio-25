@@ -3,6 +3,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sphere } from '@react-three/drei';
 import * as THREE from 'three';
 
+import { ThreeElements } from '@react-three/fiber';
+
 function NeuralNetworkMesh() {
   const groupRef = useRef<THREE.Group>(null);
   
@@ -102,26 +104,29 @@ function NeuralNetworkMesh() {
     </group>
   );
 }
-
-function Line({ start, end, color, opacity }: {
+function Line({
+  start,
+  end,
+  color,
+  opacity,
+}: {
   start: [number, number, number];
   end: [number, number, number];
   color: string;
   opacity: number;
 }) {
-  const ref = useRef<THREE.Line>(null);
-  
+  const ref = useRef<THREE.Line>(null!);
+
   const geometry = useMemo(() => {
     const points = [new THREE.Vector3(...start), new THREE.Vector3(...end)];
     return new THREE.BufferGeometry().setFromPoints(points);
   }, [start, end]);
 
   return (
-    <line ref={ref} geometry={geometry}>
-      <lineBasicMaterial color={color} transparent opacity={opacity} />
-    </line>
+    <primitive object={new THREE.Line(geometry, new THREE.LineBasicMaterial({ color, transparent: true, opacity }))} />
   );
 }
+
 
 function Particles() {
   const particlesRef = useRef<THREE.Points>(null);
@@ -147,11 +152,10 @@ function Particles() {
     <points ref={particlesRef}>
       <bufferGeometry>
         <bufferAttribute
-          attach="attributes-position"
-          count={particleCount}
-          array={positions}
-          itemSize={3}
-        />
+  attach="attributes-position"
+  args={[positions, 3]} // 👈 this replaces array + itemSize
+/>
+
       </bufferGeometry>
       <pointsMaterial
         size={0.02}
