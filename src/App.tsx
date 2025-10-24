@@ -1,6 +1,6 @@
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { Skills } from './components/Skills';
+import Contact from './components/contact';
 import { Projects } from './components/Projects';
 import {TechStackVisualization} from './components/TechStackVisulization';
 import { GridBackground } from './components/GridBackground';
@@ -58,7 +58,7 @@ export default function App() {
       <About />
       <TechStackVisualization />
       <Projects />
-      
+      <Contact />
 
       {/* Footer */}
       <footer className="glass-strong border-t border-border/50 py-8 relative">
