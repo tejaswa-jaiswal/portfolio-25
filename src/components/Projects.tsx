@@ -8,49 +8,56 @@ export function Projects() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const projects = [
-    {
-      title: "AI-Powered Document Analyzer",
-      description: "GenAI application using LLMs to extract insights from documents, featuring intelligent summarization and Q&A capabilities.",
-      tags: ["OpenAI", "FastAPI", "React"],
-      color: "from-cyan-500 to-blue-500",
-      metric: "LLM Integration"
-    },
-    {
-      title: "Computer Vision App",
-      description: "Real-time object detection and tracking system built with OpenCV and TensorFlow for surveillance and analytics.",
-      tags: ["TensorFlow", "OpenCV", "Python"],
-      color: "from-purple-500 to-pink-500",
-      metric: "Real-time Detection"
-    },
-    {
-      title: "E-Commerce Platform",
-      description: "Full-stack shopping platform with recommendation engine, payment integration, and admin dashboard.",
-      tags: ["Django", "React", "PostgreSQL"],
-      color: "from-green-500 to-teal-500",
-      metric: "Full Stack"
-    },
-    {
-      title: "ML Model API Service",
-      description: "FastAPI-based microservice deploying multiple ML models with authentication, caching, and monitoring.",
-      tags: ["FastAPI", "Docker", "Redis"],
-      color: "from-orange-500 to-red-500",
-      metric: "Production Ready"
-    },
-    {
-      title: "Chat Application with AI",
-      description: "Real-time messaging app integrated with AI chatbot capabilities using modern websockets and GenAI tools.",
-      tags: ["React", "Django", "WebSockets"],
-      color: "from-blue-500 to-indigo-500",
-      metric: "AI-Enhanced"
-    },
-    {
-      title: "Data Analytics Dashboard",
-      description: "Interactive dashboard for visualizing ML model performance metrics with real-time updates and insights.",
-      tags: ["React", "FastAPI", "Plotly"],
-      color: "from-pink-500 to-purple-500",
-      metric: "Interactive Viz"
-    }
-  ];
+  {
+    title: "Mobile Price Prediction",
+    description: "Machine learning project that predicts mobile prices using EDA, feature engineering, and deep learning models for accurate classification.",
+    tags: ["EDA", "ML", "DL", "Regex", "NumPy", "Pandas", "Matplotlib"],
+    color: "from-cyan-500 to-blue-500",
+    metric: "Predictive Analytics",
+    github: "github.com/tejaswa-jaiswal/mobile-price-prediction",
+  },
+  {
+    title: "Captcha Prediction",
+    description: "Deep learning-based system that uses OpenCV and CNN to recognize and decode complex CAPTCHA images with data preprocessing and cleaning.",
+    tags: ["OpenCV", "CNN", "Data Cleaning"],
+    color: "from-purple-500 to-pink-500",
+    metric: "Computer Vision",
+    github: "github.com/tejaswa-jaiswal/captcha-prediction",
+  },
+  {
+    title: "E-Commerce Platform",
+    description: "Full-stack e-commerce website with Django backend, REST APIs, and integrated payment gateway for seamless online shopping.",
+    tags: ["Django", "API", "Payment Gateway"],
+    color: "from-green-500 to-teal-500",
+    metric: "Full Stack",
+    github: "github.com/tejaswa-jaiswal/ecommerce-",
+  },
+  {
+    title: "HobbyVerse",
+    description: "Real-time web application that connects people with similar interests using Django and WebSockets for live chat and community building.",
+    tags: ["Django", "WebSockets", "Real-Time Chat"],
+    color: "from-blue-500 to-indigo-500",
+    metric: "Social Platform",
+    github: "github.com/tejaswa-jaiswal/hobbyverse",
+  },
+  {
+    title: "Attendance System",
+    description: "Smart attendance tracking system designed for accuracy and ease of use, featuring database integration and real-time updates.",
+    tags: ["Python", "Database", "Automation"],
+    color: "from-orange-500 to-red-500",
+    metric: "Automation",
+    github: "github.com/tejaswa-jaiswal/Attendance-System",
+  },
+  {
+    title: "Hospital Management System",
+    description: "Comprehensive web-based solution to manage patient records, appointments, and staff operations efficiently using Django.",
+    tags: ["Django", "SQL", "Web App"],
+    color: "from-pink-500 to-purple-500",
+    metric: "Management System",
+    github: "github.com/tejaswa-jaiswal/Hospital-management-system",
+  }
+];
+
 
   return (
     <section id="projects" className="min-h-screen flex items-center justify-center px-4 py-20">
@@ -136,19 +143,33 @@ function ProjectCard({ project, index, isInView }: {
           </div>
           
           {/* Action buttons */}
-          <motion.div 
-            className="flex gap-3"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            <button className="text-muted-foreground hover:text-primary transition-colors">
-              <Github className="w-4 h-4" />
-            </button>
-            <button className="text-muted-foreground hover:text-primary transition-colors">
-              <ExternalLink className="w-4 h-4" />
-            </button>
-          </motion.div>
+         <motion.div 
+  className="flex gap-3"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: isHovered ? 1 : 0 }}
+  transition={{ duration: 0.2 }}
+>
+  {/* GitHub link */}
+  <a
+    href={`https://${project.github}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-muted-foreground hover:text-primary transition-colors"
+  >
+    <Github className="w-4 h-4" />
+  </a>
+
+  {/* External link (optional, if you add project.demo later) */}
+  <a
+    href={project.demo || "#"}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-muted-foreground hover:text-primary transition-colors"
+  >
+    <ExternalLink className="w-4 h-4" />
+  </a>
+</motion.div>
+
         </div>
       </div>
 
