@@ -14,7 +14,7 @@ export function Projects() {
     tags: ["EDA", "ML", "DL", "Regex", "NumPy", "Pandas", "Matplotlib"],
     color: "from-cyan-500 to-blue-500",
     metric: "Predictive Analytics",
-    github: "github.com/tejaswa-jaiswal/mobile-price-prediction",
+    github: "github.com/tejaswa-jaiswal/mobile_price_prediction",
   },
   {
     title: "Captcha Prediction",
